@@ -7,8 +7,14 @@ let num2 = 0;
 let operator = null;
 let currentInput = ""
 
+// Utility functions
+function logButtonId(button) {
+    console.log(button.target.id)
+}
 
 
+
+// Clears variables and resets screen ready for new operation
 function clearState() {
     let num1 = 0;
     let num2 = 0;
@@ -28,14 +34,13 @@ function operation(num1,operator,num2) {
     return result;
 }
 
-function logButtonId(button) {
-    console.log(button.target.id)
-}
-
-
+// Button Listeners
 
 numberButtons.forEach(button => {
-    button.addEventListener("click", logButtonId)
+    button.addEventListener("click", (button) => {
+        currentInput += button.target.id;
+        userScreen.textContent = currentInput
+    })
 })
 operatorButtons.forEach(button => {
     button.addEventListener("click", logButtonId)
