@@ -1,6 +1,6 @@
 
 
-function mathFunction(operator,num1,num2) {
+function operate(operator,num1,num2) {
     let result;
     switch(operator) {
         case 'plus': result = num1+num2; break;
