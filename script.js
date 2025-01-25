@@ -36,10 +36,16 @@ function operation(num1,operator,num2) {
         case 'plus': result = num1+num2; break;
         case 'minus': result = num1-num2; break;
         case 'multiply': result = num1*num2; break;
+        case 'divide': if (num1==0 && num2==0) {result = "NUH UH"}; break;
         case 'divide': result = num1/num2; break;
         default: result="ERROR"; break;
     }
-    return Math.floor(result*1000)/1000;
+    if (result != NaN) {
+        return result;
+    } else {
+        return Math.floor(result*1000)/1000;
+    }
+    
 }
 
 function operatorButtonLogic(button) {
