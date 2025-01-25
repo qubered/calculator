@@ -10,37 +10,57 @@
 <body>
     <div class="flex justify-center items-center h-screen">
         <div class="flex flex-col gap-2 justify-center items-center">
-            <div class="flex bg-gray-600 w-46 h-14 text-3xl items-center text-white p-2"><span>123312</span></div>
-            <div class="flex gap-2 text-white">
-                <div class="flex flex-col gap-2">
-                    <div class="flex items-center justify-center h-10 bg-black">CLR</div>
-                    <div class="flex items-center justify-center h-10 bg-black">7</div>
-                    <div class="flex items-center justify-center h-10 bg-black">4</div>
-                    <div class="flex items-center justify-center h-10 bg-black">1</div>
-                    <div class="w-10 h-10"></div>
-                </div>
-                <div class="flex flex-col gap-2">
-                    <div class="w-10 h-10 "></div>
-                    <div class="flex items-center justify-center h-10 bg-black">8</div>
-                    <div class="flex items-center justify-center h-10 bg-black">5</div>
-                    <div class="flex items-center justify-center h-10 bg-black">2</div>
-                    <div class="flex items-center justify-center h-10 bg-black">0</div>
-                </div>
-                <div class="flex flex-col gap-2">
-                    <div class="w-10 h-10 "></div>
-                    <div class="flex items-center justify-center h-10 bg-black">9</div>
-                    <div class="flex items-center justify-center h-10 bg-black">6</div>
-                    <div class="flex items-center justify-center h-10 bg-black">3</div>
-                    <div class="w-10 h-10 "></div>
-                </div>
-                <div class="flex flex-col gap-2">
-                    <div class="flex items-center justify-center w-10 h-10 bg-gray-600">÷</div>
-                    <div class="flex items-center justify-center w-10 h-10 bg-gray-600">x</div>
-                    <div class="flex items-center justify-center w-10 h-10 bg-gray-600">-</div>
-                    <div class="flex items-center justify-center w-10 h-10 bg-gray-600">+</div>
-                    <div class="flex items-center justify-center w-10 h-10 bg-gray-600">=</div>
-                </div>
+            <div class="flex bg-gray-600 w-46 h-14 text-3xl items-center text-white p-2"><span id="user-box">123312</span></div>
+            <div class="flex flex-col gap-2 text-white">
+                <div class="flex flex-col gap-2 text-white">
+                    <div class="flex flex-col gap-2 text-white">
+                        <!-- First Row -->
+                        <div class="flex gap-2">
+                            <div id="clear-btn" class="w-[8.5rem] flex items-center justify-center h-10 bg-black">CLR</div>
+                            <div id="divide" class="operator-button w-10 flex items-center justify-center h-10 bg-gray-600">÷</div>
+                        </div>
+                    
+                        <!-- Second Row -->
+                        <div class="flex gap-2">
+                            <div class="flex gap-2 flex-1">
+                                <div id="7" class="num-button w-10 flex items-center justify-center h-10 bg-black">7</div>
+                                <div id="8" class="num-button w-10 flex items-center justify-center h-10 bg-black">8</div>
+                                <div id="9" class="num-button w-10 flex items-center justify-center h-10 bg-black">9</div>
+                            </div>
+                            <div id="multiply" class="operator-button w-10 flex items-center justify-center h-10 bg-gray-600">×</div>
+                        </div>
+                    
+                        <!-- Third Row -->
+                        <div class="flex gap-2">
+                            <div class="flex gap-2 flex-1">
+                                <div id="4" class="num-button w-10 flex items-center justify-center h-10 bg-black">4</div>
+                                <div id="5" class="num-button w-10 flex items-center justify-center h-10 bg-black">5</div>
+                                <div id="6" class="num-button w-10 flex items-center justify-center h-10 bg-black">6</div>
+                            </div>
+                            <div id="minus" class="operator-button w-10 flex items-center justify-center h-10 bg-gray-600">-</div>
+                        </div>
+                    
+                        <!-- Fourth Row -->
+                        <div class="flex gap-2">
+                            <div class="flex gap-2 flex-1">
+                                <div id="1" class="num-button w-10 flex items-center justify-center h-10 bg-black">1</div>
+                                <div id="2" class="num-button w-10 flex items-center justify-center h-10 bg-black">2</div>
+                                <div id="3" class="num-button w-10 flex items-center justify-center h-10 bg-black">3</div>
+                            </div>
+                            <div class="operator-button w-10 flex items-center justify-center h-10 bg-gray-600">+</div>
+                        </div>
+                    
+                        <!-- Fifth Row -->
+                        <div class="flex gap-2">
+                            <div id="0" class="num-button w-[5.5rem] flex items-center justify-center h-10 bg-black">0</div>
+                            <div id="equals" class="operator-button w-[5.5rem] flex items-center justify-center h-10 bg-gray-600">=</div>
+                        </div>
+                    </div>
+                    
+                    </div>
+                
             </div>
+            
         </div>
         
     </div>
