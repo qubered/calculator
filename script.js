@@ -39,7 +39,7 @@ function operation(num1,operator,num2) {
         case 'divide': result = num1/num2; break;
         default: result="ERROR"; break;
     }
-    return result;
+    return Math.floor(result*1000)/1000;
 }
 
 function operatorButtonLogic(button) {
