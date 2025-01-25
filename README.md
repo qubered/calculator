@@ -1,5 +1,8 @@
 # Calculator Project
-The Odin project
+### The Odin project
+
+
+This project used some AI to help with some of the logic.. I hate maths :) 
 
 ## Pseudo Code (with some help from ai for formatting)
 ```
