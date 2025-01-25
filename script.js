@@ -6,6 +6,8 @@ let num1 = 0;
 let num2 = 0;
 let operator = null;
 let currentInput = ""
+let lastOperator = null;
+let lastNum2 = null;
 
 // Utility functions
 function logButtonId(button) {
@@ -19,6 +21,8 @@ function clearState() {
     num1 = 0;
     num2 = 0;
     operator = null;
+    lastOperator = null;
+    lastNum2 = null;
     currentInput = "";  // Also reset this
     userScreen.textContent = "";
 }
@@ -41,30 +45,45 @@ function operation(num1,operator,num2) {
 function operatorButtonLogic(button) {
     const newOperator = button.target.id;
 
-    if (operator === null) {
-        // Use previous result OR new input
-        if (currentInput !== "") {
-            num1 = Number(currentInput);
+    if (newOperator === "equals") {
+        // Case 1: Repeating the last operation
+        if (currentInput === "" && lastOperator && lastNum2 !== null) {
+            const result = operation(num1, lastOperator, lastNum2);
+            userScreen.textContent = result;
+            num1 = result;
+            return;
         }
-        // If currentInput is empty, keeps existing num1 (from previous result)
-        operator = newOperator;
-        currentInput = "";
-    } else if (newOperator === "equals") {
-        if (currentInput === "") return;  // Prevent empty calculation
-        num2 = Number(currentInput);
-        const result = operation(num1, operator, num2);
-        userScreen.textContent = result;
-        num1 = result;  // Store result for future operations
-        currentInput = "";  // Clear input but keep num1
-        operator = null;
-    } else {
-        // Chained operator before equals
+
+        // Case 2: Normal calculation
         if (currentInput !== "") {
             num2 = Number(currentInput);
-            num1 = operation(num1, operator, num2);
+            const result = operation(num1, operator, num2);
+            
+            // Store last operation for potential repeats
+            lastOperator = operator;
+            lastNum2 = num2;
+            
+            userScreen.textContent = result;
+            num1 = result;
+            currentInput = "";
+            operator = null;
         }
-        operator = newOperator;
-        currentInput = "";
+    } else {
+        // Existing operator handling logic
+        if (operator === null) {
+            operator = newOperator;
+            if (currentInput !== "") {
+                num1 = Number(currentInput);
+                currentInput = "";
+            }
+        } else {
+            if (currentInput !== "") {
+                num2 = Number(currentInput);
+                num1 = operation(num1, operator, num2);
+                currentInput = "";
+            }
+            operator = newOperator;
+        }
     }
 }
 
@@ -74,12 +93,13 @@ function operatorButtonLogic(button) {
 
 numberButtons.forEach(button => {
     button.addEventListener("click", (button) => {
-        // Reset input if starting new number after result
+        // If starting fresh after a calculation
         if (operator === null && currentInput === "") {
+            // Reset last operation tracking when starting new number
+            lastOperator = null;
+            lastNum2 = null;
             currentInput = button.target.id;
         } else {
-            // Prevent multiple decimals
-            if (button.target.id === "." && currentInput.includes(".")) return;
             currentInput += button.target.id;
         }
         userScreen.textContent = currentInput;
